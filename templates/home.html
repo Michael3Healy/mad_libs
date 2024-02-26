@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Create Mad Lib {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="display-1 fw-bold text-center">Mad Libs</h1>
+    <h2 class="text-center">Which story would you like to choose?</h2>
+    <form action="/create">
+        <select class="form-select" name="story_title">
+            {% for (title, story) in stories.items() %}
+            <option value="{{ title }}">{{title}}</option>
+            {% endfor %}
+        </select>
+        <div class="row">
+            <div class="col text-center m-3">
+                <button class="btn btn-success btn-lg">Choose Story!</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+{% endblock %}

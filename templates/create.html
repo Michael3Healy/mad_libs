@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Create Mad Lib {% endblock %}
+
+{% block content %}
+<h1 class="display-1 fw-bold text-center">Create Mad Lib</h1>
+
+<div class="container-fluid">
+    <form action="/story">
+        <input type="hidden" name="story_title" value="{{ story_title }}">
+        {% for question in questions %}
+        <div class="row m-3">
+            <div class="col-1 fs-3">
+                <label for={{question}}>{{question}}: </label>
+            </div>
+            <div class="col-11">
+                <input id={{question}} type="text" class="form-control answer" name={{question}}>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col text-center">
+                <button class="btn btn-success btn-lg">Create Mad Lib!</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/static/script.js"></script>
+
+{% endblock %}
